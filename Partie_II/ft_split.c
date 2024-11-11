@@ -26,10 +26,9 @@ static int	count_words(char *s, char c)
 		if (s[i] != 0)
 		{
 			count++;
-			while (s[i] != c)
+			while (s[i] != c && s[i] != '\0')
 				i++;
 		}
-		i++;
 	}
 	return (count);
 }
@@ -45,29 +44,41 @@ static char	*ft_malloc(char *str, char c)
 	return (ft_substr(str, 0, i));
 }
 
+static void	free_words(char **result, int j)
+{
+	while (j--)
+		free(result[j]);
+	free(result);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**resultat;
-	int		words;
 	int		i;
 	int		j;
 
-	words = count_words((char *)s, c);
-	resultat = (char **)malloc((words + 1) * sizeof(char *));
+	if (!s)
+		return (NULL);
+	resultat = malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!resultat)
 		return (NULL);
 	i = 0;
+	j = 0;
 	while (s[i])
-	{
-		while (s[i] == c)
-			i++;
-		if (s[i] != 0)
+	{        
+		if (s[i] != c && s[i] != '\0')
 		{
 			resultat[j] = ft_malloc(s + i, c);
-			j++;
+			if (!resultat[j])  
+			{
+				free_words(resultat, j);  
+				return (NULL);
+			}
+			j++;  
 			while (s[i] != c && s[i] != '\0')
 				i++;
 		}
+		i++;
 	}
 	resultat[j] = 0;
 	return (resultat);

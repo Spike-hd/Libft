@@ -17,11 +17,11 @@ void	*ft_memset(void *ptr, int value, size_t count)
 	unsigned char	*temp;
 	size_t			i;
 
-	temp = (unsigned char *) ptr;
+	temp = (unsigned char *)ptr;
 	i = 0;
 	while (i < count)
 	{
-		temp[i] = value;
+		temp[i] = (unsigned char)value;
 		i++;
 	}
 	return (ptr);
