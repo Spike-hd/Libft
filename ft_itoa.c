@@ -1,4 +1,4 @@
-/*************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
@@ -12,33 +12,69 @@
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+static char	*fill_result(char *nb, int n, int size, int is_neg)
 {
-	char	*nb;
-	int		is_neg;
-	int		temp;
-	int		i;
-
-	is_neg = 0;
-	i = 0;
-	if (n < 0)
-		is_neg = 1;
-	temp = n;
+	nb[size] = '\0';
+	size--;
+	if (n == 0)
+	{
+		nb[size] = '0';
+		return (nb);
+	}
+	if (n == -2147483648)
+	{
+		nb[size] = '8';
+		size--;
+		n = 214748364;
+	}
 	while (n)
 	{
+		nb[size] = (n % 10) + '0';
 		n /= 10;
-		i++;
-	}
-	nb = (char *)malloc(i + 1 + is_neg);
-	if (!nb)
-		return (NULL);
-	nb[i + is_neg] = 0;
-	while (temp)
-	{
-		nb[--i + is_neg] = (temp % 10) + '0';
-		temp /= 10;
+		size--;
 	}
 	if (is_neg)
 		nb[0] = '-';
 	return (nb);
+}
+
+static int	get_size(int n, int is_neg)
+{
+	int	size;
+
+	size = 0;
+	if (n == 0)
+		return (1);
+	if (is_neg)
+	{
+		size++;
+		n = -n;
+	}
+	if (n == -2147483648)
+		return (11);
+	while (n)
+	{
+		n /= 10;
+		size++;
+	}
+	return (size);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*nb;
+	int		is_neg;
+	int		size;
+
+	is_neg = 0;
+	if (n < 0)
+	{
+		is_neg = 1;
+		n = -n;
+	}
+	size = get_size(n, is_neg);
+	nb = (char *)malloc(size + 1);
+	if (!nb)
+		return (NULL);
+	return (fill_result(nb, n, size, is_neg));
 }
