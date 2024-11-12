@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hduflos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 17:34:47 by hduflos           #+#    #+#             */
-/*   Updated: 2024/11/05 09:45:00 by hduflos          ###   ########.fr       */
+/*   Created: 2024/11/05 08:56:26 by hduflos           #+#    #+#             */
+/*   Updated: 2024/11/05 09:31:01 by hduflos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < n)
+	if (size == 0)
+		return ft_strlen(src); 
+	if (!dest || !src)
+		return (0);
+	while (src[i] && i < size - 1)
 	{
-		if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i])
-			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
+		dest[i] = src[i];
 		i++;
 	}
-	return (0);
+	dest[i] = 0;
+	while (src[i])
+		i++;
+	return (i);
 }
-

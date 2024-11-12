@@ -36,7 +36,6 @@ static int	count_words(char *s, char c)
 static char	*ft_malloc(char *str, char c)
 {
 	int		i;
-	char	*dest;
 
 	i = 0;
 	while (str[i] && str[i] != c)
@@ -59,7 +58,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	resultat = malloc((count_words(s, c) + 1) * sizeof(char *));
+	resultat = malloc((count_words((char *)s, c) + 1) * sizeof(char *));
 	if (!resultat)
 		return (NULL);
 	i = 0;
@@ -68,7 +67,7 @@ char	**ft_split(char const *s, char c)
 	{        
 		if (s[i] != c && s[i] != '\0')
 		{
-			resultat[j] = ft_malloc(s + i, c);
+			resultat[j] = ft_malloc(((char *)(s + i)), c);
 			if (!resultat[j])  
 			{
 				free_words(resultat, j);  

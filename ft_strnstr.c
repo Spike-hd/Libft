@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hduflos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 09:21:50 by hduflos           #+#    #+#             */
-/*   Updated: 2024/11/05 09:40:32 by hduflos          ###   ########.fr       */
+/*   Created: 2024/11/06 16:46:20 by hduflos           #+#    #+#             */
+/*   Updated: 2024/11/06 16:58:14 by hduflos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 {
-	int	dst_len;
-	int	src_len;
-	int	i;
+	size_t	i;
+	size_t	j;
+	size_t	s2_len;
 
-	dst_len = ft_strlen(dst);
-	src_len = ft_strlen(src);
+	s2_len = ft_strlen(s2);
 	i = 0;
-	if (size == 0)
-		return (src_len);
-	if (dstsize <= dst_len)
-		return (dstsize + src_len);
-	while (src[i] && i + dst_len < (dstsize - 1))
+	if (s2_len == 0)
+		return ((char *)s1);
+	while (s1[i] && i + s2_len < len)
 	{
-		dst[i + dst_len] = src[i];
+		j = 0;
+		while (s1[i + j] == s2[j] && s2[j] != 0)
+			j++;
+		if (j == s2_len)
+			return ((char *)(s1 + i));
 		i++;
 	}
-	dst[i + dst_len] = 0;
-	return (dst_len + src_len);
+	return (NULL);
 }

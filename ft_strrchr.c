@@ -15,19 +15,17 @@
 char	*ft_strrchr(const char *str, int ch)
 {
 	int		str_len;
-	int		i;
 	char	c;
 
-	i = 0;
 	c = (char)ch;
 	str_len = ft_strlen(str);
 	if (c == 0)
 		return ((char *)(str + str_len));
-	while (str[str_len - i] && str_len - i > 0)
+	while (str_len > 0)
 	{
-		if (str[str_len - i] == c)
-			return ((char *)(str + (str_len - i)));
-		i++;
+		str_len--;
+		if (str[str_len] == c)
+			return ((char *)(str + str_len));
 	}
 	return (NULL);
 }

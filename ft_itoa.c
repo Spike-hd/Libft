@@ -22,7 +22,6 @@ char	*ft_itoa(int n)
 	is_neg = 0;
 	i = 0;
 	if (n < 0)
-	{
 		is_neg = 1;
 	temp = n;
 	while (n)
