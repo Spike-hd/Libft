@@ -6,7 +6,7 @@
 /*   By: hduflos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:34:44 by hduflos           #+#    #+#             */
-/*   Updated: 2024/11/06 17:47:56 by hduflos          ###   ########.fr       */
+/*   Updated: 2024/11/14 10:18:31 by hduflos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,3 +46,42 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	return (ft_strcat(res, s1, s2));
 }
+
+/*
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+    // Cas de test 1 : Chaînes normales
+    const char *s1 = "Hello, ";
+    const char *s2 = "World!";
+    char *result1 = ft_strjoin(s1, s2);
+    if (result1)
+    {
+        printf("Test 1: \"%s\" + \"%s\" = \"%s\"\n", s1, s2, result1);
+        free(result1);
+    }
+    else
+    {
+        printf("Test 1: Erreur lors de l'allocation mémoire.\n");
+    }
+
+    // Cas de test 2 : Chaîne s1 vide
+    s1 = "";
+    s2 = "World!";
+    char *result2 = ft_strjoin(s1, s2);
+    if (result2)
+    {
+        printf("Test 2: \"%s\" + \"%s\" = \"%s\"\n", s1, s2, result2);
+        free(result2);
+    }
+    else
+    {
+        printf("Test 2: Erreur lors de l'allocation mémoire.\n");
+    }
+
+    return (0);
+}
+*/

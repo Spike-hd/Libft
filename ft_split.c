@@ -6,7 +6,7 @@
 /*   By: hduflos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 19:31:27 by hduflos           #+#    #+#             */
-/*   Updated: 2024/11/06 20:02:26 by hduflos          ###   ########.fr       */
+/*   Updated: 2024/11/14 10:28:13 by hduflos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,3 +89,48 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (fill_result(resultat, (char *)s, c));
 }
+
+/*
+#include <stdio.h>
+#include <stdlib.h>
+
+char    **ft_split(char const *s, char c);
+
+void print_split_result(char **result)
+{
+    int i = 0;
+    if (result)
+    {
+        while (result[i])
+        {
+            printf("Segment %d: \"%s\"\n", i, result[i]);
+            free(result[i]); 
+            i++;
+        }
+        free(result); 
+    }
+    else
+    {
+        printf("Erreur : résultat de ft_split est NULL.\n");
+    }
+}
+
+int main()
+{
+    // Cas de test 1 : Chaîne avec des délimiteurs au milieu
+    const char *s1 = "Hello, World, OpenAI";
+    char delim1 = ',';
+    printf("Test 1: Splitting \"%s\" with delimiter '%c'\n", s1, delim1);
+    char **result1 = ft_split(s1, delim1);
+    print_split_result(result1);
+
+    // Cas de test 2 : Chaîne avec des délimiteurs consécutifs
+    const char *s2 = "Hello,,World,,OpenAI";
+    char delim2 = ',';
+    printf("\nTest 2: Splitting \"%s\" with delimiter '%c'\n", s2, delim2);
+    char **result2 = ft_split(s2, delim2);
+    print_split_result(result2);
+
+    return (0);
+}
+*/

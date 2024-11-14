@@ -6,7 +6,7 @@
 /*   By: hduflos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:08:22 by hduflos           #+#    #+#             */
-/*   Updated: 2024/11/06 17:32:04 by hduflos          ###   ########.fr       */
+/*   Updated: 2024/11/14 10:21:02 by hduflos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,3 +37,21 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	res[i] = '\0';
 	return (res);
 }
+
+/*
+void test_ft_substr() 
+{
+	const char *s = "Hello, world!";
+	unsigned int start = 7;
+	size_t len = 5;
+	char *result = ft_substr(s, start, len);
+	printf("ft_substr:'%s',start %u,len %zu res:%s\n", s, start, len, result);
+	free(result);
+}
+
+int main()
+{
+	test_ft_substr();
+	return (0);
+}
+*/

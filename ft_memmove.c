@@ -6,7 +6,7 @@
 /*   By: hduflos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 12:53:46 by hduflos           #+#    #+#             */
-/*   Updated: 2024/11/06 16:59:37 by hduflos          ###   ########.fr       */
+/*   Updated: 2024/11/14 09:24:17 by hduflos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,33 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	return (dst);
 }
+
+/*
+#include <stdio.h>
+
+int main() 
+{
+    char str1[20] = "Hello, World!";
+    char str2[20];  
+    printf("Avant ft_memmove (cas simple):\n");
+    printf("src: %s\n", str1);
+    printf("dst: %s\n", str2);
+
+    ft_memmove(str2, str1, 13);
+
+    printf("\nAprès ft_memmove (cas simple):\n");
+    printf("src: %s\n", str1);      
+    printf("dst: %s\n", str2); 
+
+    char str3[20] = "1234567890";
+    printf("\nAvant ft_memmove (cas avec chevauchement):\n");
+    printf("str3: %s\n", str3);
+
+    ft_memmove(str3 + 4, str3, 6);
+
+    printf("\nAprès ft_memmove (cas avec chevauchement):\n");
+    printf("str3: %s\n", str3);  
+
+    return 0;
+}
+*/

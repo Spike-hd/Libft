@@ -6,7 +6,7 @@
 /*   By: hduflos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:34:47 by hduflos           #+#    #+#             */
-/*   Updated: 2024/11/05 09:45:00 by hduflos          ###   ########.fr       */
+/*   Updated: 2024/11/14 09:17:13 by hduflos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,3 +26,24 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	}
 	return (dst);
 }
+
+/*
+#include <stdio.h>
+
+void *ft_memcpy(void *dst, const void *src, size_t n);
+
+int main() {
+    char src[] = "Hello, World!";      
+    char dst[20];                  
+
+    printf("Avant memcpy:\n");
+    printf("src: %s\n", src);
+    printf("dst: %s\n", dst);  
+    ft_memcpy(dst, src, 13);
+
+    printf("\nAprès memcpy:\n");
+    printf("src: %s\n", src);
+    printf("dst: %s\n", dst);  
+    return 0;
+}
+*/

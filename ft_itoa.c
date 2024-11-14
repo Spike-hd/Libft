@@ -6,7 +6,7 @@
 /*   By: hduflos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 22:08:32 by hduflos           #+#    #+#             */
-/*   Updated: 2024/11/06 23:33:53 by hduflos          ###   ########.fr       */
+/*   Updated: 2024/11/14 12:05:16 by hduflos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ char	*ft_itoa(int n)
 	if (n < 0)
 	{
 		is_neg = 1;
-		n = -n;
+		if (n != -2147483648)
+			n = -n;
 	}
 	size = get_size(n, is_neg);
 	nb = (char *)malloc(size + 1);
@@ -78,3 +79,38 @@ char	*ft_itoa(int n)
 		return (NULL);
 	return (fill_result(nb, n, size, is_neg));
 }
+
+/*
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    // Cas de test 1 : Entier positif
+    int num1 = 12345;
+    char *result1 = ft_itoa(num1);
+    if (result1)
+    {
+        printf("Test 1: itoa(%d) = \"%s\"\n", num1, result1);
+        free(result1);
+    }
+    else
+    {
+        printf("Test 1: Erreur lors de l'allocation mémoire.\n");
+    }
+
+    // Cas de test 2 : Entier négatif
+    int num2 = -2147483648;
+    char *result2 = ft_itoa(num2);
+    if (result2)
+    {
+        printf("Test 2: itoa(%d) = \"%s\"\n", num2, result2);
+        free(result2);
+    }
+    else
+    {
+        printf("Test 2: Erreur lors de l'allocation mémoire.\n");
+    }
+    return (0);
+}
+*/

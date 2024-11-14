@@ -6,7 +6,7 @@
 /*   By: hduflos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:18:33 by hduflos           #+#    #+#             */
-/*   Updated: 2024/11/05 10:32:02 by hduflos          ###   ########.fr       */
+/*   Updated: 2024/11/14 09:49:33 by hduflos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,26 @@ char	*ft_strrchr(const char *str, int ch)
 	}
 	return (NULL);
 }
+
+/*
+#include <stdio.h>
+
+int main() 
+{
+    const char *str1 = "Hello, World!";
+    char ch1 = 'o';
+
+    printf("Test 1 last occurrence du caractère '%c' dans \"%s\"\n", ch1, str1);
+    char *result1 = ft_strrchr(str1, ch1);
+    if (result1) 
+    {
+        printf("last occurrence trouvée à la position : %ld\n", result1 - str1);
+        printf("Sous-chaîne à partir de la position : \"%s\"\n", result1);
+    } 
+    else 
+    {
+        printf("Caractère non trouvé.\n");
+    }
+    return (0);
+}
+*/
