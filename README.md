@@ -1,3 +1,7 @@
+<div align="center">
+  <a href="https://github.com/mpeyre-s/libft"><img src="https://github.com/mpeyre-s/42_project_badges/raw/main/badges/libft_bonus.svg"/></a>
+</div>
+
 # libft
 
 ## Overview
@@ -12,4 +16,5 @@ This library can be used as a foundation for future projects, providing a reliab
 - String manipulation functions (`ft_strlen`, `ft_strcpy`, `ft_strncpy`, `ft_strcat`, `ft_strchr`, etc.)
 - Character checking and conversion functions (`ft_isalpha`, `ft_isdigit`, `ft_toupper`, `ft_tolower`, etc.)
 - Additional utility functions such as `ft_itoa`, `ft_split`, `ft_strjoin`, etc.
+
 
